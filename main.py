@@ -1,4 +1,4 @@
-# MCLanguageFixer 1.0
+# MCLanguageFixer 1.1
 # Written by JX_Snack in association with SnackBag Network
 # Special thanks to InventivetalentDev's MCAssets
 
@@ -50,10 +50,11 @@ with open(file_name, "r") as f:
             languages.append(language_file)
             print(f"Found language file: {path.split('/')[3]}")
 
+    content = "".join(f.readlines())
     for language in languages:
         with open(out_folder / language, "w") as langfile:
             print(f"Writing {out_folder / language}")
-            content = "".join(f.readlines())
             langfile.write(content)
+            langfile.close()
 
 print("Finished!")
